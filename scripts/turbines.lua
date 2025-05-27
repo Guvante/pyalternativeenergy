@@ -586,8 +586,6 @@ Turbines.events.on_destroyed = function(event)
         end
         return
     end
-    
-
 end
 
 --Update the electric or aerial networks on demand

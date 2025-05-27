@@ -115,27 +115,29 @@ local travel_speeds = {
     ["aerial-blimp-mk04"] = 4.8,
 }
 
+local MJ_ratio = 1000000
+
 Turbines.lookup["aerial-blimp-mk01"] = {
         buffer = function(count)
-            return count * (200 * 2 ^ 1) * 1000000-- x * MJ
+            return count * (200 * 2 ^ 1) * MJ_ratio
         end,
         interface_name = "aerial-blimp-mk01-accumulator"
     }
 Turbines.lookup["aerial-blimp-mk02"] = {
         buffer = function(count)
-            return count * (200 * 2 ^ 2) * 1000000 -- x * MJ
+            return count * (200 * 2 ^ 2) * MJ_ratio
         end,
         interface_name = "aerial-blimp-mk02-accumulator"
     }
 Turbines.lookup["aerial-blimp-mk03"] = {
         buffer = function(count)
-            return count * (200 * 2 ^ 3) * 1000000 -- x * MJ
+            return count * (200 * 2 ^ 3) * MJ_ratio
         end,
         interface_name = "aerial-blimp-mk03-accumulator"
     }
 Turbines.lookup["aerial-blimp-mk04"] = {
         buffer = function(count)
-            return count * (200 * 2 ^ 4) * 1000000  -- x * MJ
+            return count * (200 * 2 ^ 4) * MJ_ratio
         end,
         interface_name = "aerial-blimp-mk04-accumulator"
     }

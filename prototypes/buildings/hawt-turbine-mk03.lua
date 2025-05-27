@@ -99,12 +99,42 @@ local proto = ENTITY {
 
 -- Make a copy with only the base animation
 local new_proto = table.deepcopy(proto)
+new_proto.type = "simple-entity-with-owner"
 new_proto.name = proto.name .. "-blank"
+new_proto.energy_source = nil
+new_proto.energy_production = nil
 new_proto.picture = table.deepcopy(proto.animations.layers[1])
 new_proto.picture.filename = new_proto.picture.filename:gsub("r4", "base-mk03")
 new_proto.animations = nil
 new_proto.render_layer = "lower-object-above-shadow"
 data:extend {new_proto}
+
+data:extend {{
+    type = "electric-energy-interface",
+    name = "hawt-turbine-mk03-interface",
+    localised_name = {"entity-name.hawt-turbine-mk03"},
+    localised_description = {"entity-description.hawt-turbine-mk03"},
+    icon = proto.icon,
+    icon_size = 64,
+    hidden = true,
+    flags = {"not-on-map", "placeable-off-grid", "not-flammable", "hide-alt-info"},
+    minable = nil,
+    max_health = 1,
+    selectable_in_game = false,
+    energy_source = {
+        type = "electric",
+        buffer_capacity = "50MJ",
+        usage_priority = "primary-output",
+        input_flow_limit = "0kW",
+        render_no_network_icon = false,
+        render_no_power_icon = false
+    },
+    energy_production = "50MW",
+    energy_usage = "0kW",
+    collision_mask = {layers = {}},
+    charge_cooldown = 0,
+    discharge_cooldown = 0
+}}
 
 data:extend
     {

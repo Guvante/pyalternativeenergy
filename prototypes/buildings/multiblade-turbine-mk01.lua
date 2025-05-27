@@ -107,7 +107,7 @@ data:extend {{
     name = "multiblade-turbine-mk01-interface",
     localised_name = {"entity-name.multiblade-turbine-mk01"},
     localised_description = {"entity-description.multiblade-turbine-mk01"},
-    icon = data.raw["item-with-tags"]["multiblade-turbine-mk01"].icon,
+    icon = proto.icon,
     icon_size = 64,
     hidden = true,
     flags = {"not-on-map", "placeable-off-grid", "not-flammable", "hide-alt-info"},

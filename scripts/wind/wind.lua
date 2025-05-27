@@ -35,6 +35,7 @@ local function seconds(n)
 end
 
 Wind.events.on_built = function(event)
+    ---@type LuaEntity
     local entity = event.entity
     local turbine_type = entity.valid and managed_turbines[entity.name]
     if not turbine_type then return end
@@ -265,7 +266,6 @@ for name, variance in variation do
 end
 
 Wind.events[61] = function()
-    local wind_speed = Wind.calculate_wind_speed()
     local direction = Wind.calculate_wind_direction(game.surfaces["nauvis"])
 
     -- TODO: Couldn't figure out an easy way to batch this so didn't
